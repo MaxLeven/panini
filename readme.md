@@ -1,4 +1,4 @@
-# Panini
+# Panini ES6
 
 [![Build Status](https://travis-ci.org/foundation/panini.svg?branch=master)](https://travis-ci.org/foundation/panini) [![npm version](https://badge.fury.io/js/panini.svg)](https://badge.fury.io/js/panini) [![Dependency Status](https://david-dm.org/foundation/panini.svg)](https://david-dm.org/foundation/panini)
 
@@ -17,19 +17,25 @@ npm install panini --save-dev
 Feed Panini a stream of HTML files, and get a delicious flattened site out the other end.
 
 ```js
-var gulp = require('gulp');
-var panini = require('panini');
+import gulp from 'gulp';
+import panini from 'panini';
+import extReplace from 'gulp-ext-replace';
+
+const panini = new Panini(
+  {
+    root: 'pages/',
+    layouts: 'layouts/',
+    partials: 'partials/',
+    helpers: 'helpers/',
+    data: 'data/'
+  }
+)
 
 gulp.task('default', function() {
-  gulp.src('pages/**/*.html')
-    .pipe(panini({
-      root: 'pages/',
-      layouts: 'layouts/',
-      partials: 'partials/',
-      helpers: 'helpers/',
-      data: 'data/'
-    }))
-    .pipe(gulp.dest('build'));
+  gulp.src('pages/**/*.{html,hbs}')
+    .pipe(panini.init())
+    .pipe(extReplace('.html'))
+    .pipe(gulp.dest('app'));
 });
 ```
 
