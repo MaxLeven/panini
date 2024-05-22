@@ -1,4 +1,4 @@
-var Handlebars = require('handlebars');
+import Handlebars from 'handlebars';
 
 /**
  * Handlebars block helper that repeats the content inside of it n number of times.
@@ -8,7 +8,7 @@ var Handlebars = require('handlebars');
  * {{#repeat 5}}<li>List item!</li>{{/repeat}}
  * @returns The content inside of the helper, repeated n times.
  */
-module.exports = function(count, options) {
+export default function (count, options) {
   var str = '';
   var data;
 

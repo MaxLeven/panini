@@ -3,7 +3,7 @@
  * @param {string} pageName - Name of the page to use in the helper function.
  * @returns {function} A Handlebars helper function.
  */
-module.exports = function(pageName) {
+export default function (pageName) {
   /**
    * Handlebars block helper that renders the content inside of it based on the current page.
    * @param {string...} pages - One or more pages to check.
@@ -12,7 +12,7 @@ module.exports = function(pageName) {
    * {{#ifpage 'index' 'about'}}This must be the index or about page.{{/ifpage}}
    * @return The content inside the helper if a page matches, or an empty string if not.
    */
-  return function() {
+  return function () {
     var params = Array.prototype.slice.call(arguments);
     var pages = params.slice(0, -1);
     var options = params[params.length - 1];
@@ -24,5 +24,5 @@ module.exports = function(pageName) {
     }
 
     return '';
-  }
+  };
 }
