@@ -1,6 +1,6 @@
 {
-  "name": "panini",
-  "version": "1.0.0",
+  "name": "@maxleven/panini",
+  "version": "1.0.1",
   "description": "A super tiny flat file compiler.",
   "main": "index.js",
   "type": "module",
@@ -43,6 +43,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MaxLeven/panini"
-  }
+    "url": "git+https://github.com/MaxLeven/panini.git"
+  },
+  "private": false
 }
