@@ -50,13 +50,13 @@ export default class {
     this.panini = new Panini(this.options)
 
     this.panini.loadBuiltinHelpers()
-    this.panini.refresh();
+    this.reload().then()
   }
 
 
-  reload() {
-    this.panini.refresh()
-    return this.panini.refresh.bind(this.panini)
+  async reload() {
+    await this.panini.refresh()
+    return await this.panini.refresh.bind(this.panini)
   }
 
   init() {
